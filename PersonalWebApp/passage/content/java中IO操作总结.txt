@@ -1,0 +1,24 @@
+io流包括字符流和字节流
+
+字节流FileInputStream 是 抽象父类InputStream的实现类，用于读取文件。
+           FileOutputStream 是抽象父类OutputStream的实现类，用于写文件。
+           BufferedInputStream和BufferedOutputStream是缓冲字节流可高效的进行读取操作。
+
+字符流FileReader继承自父类InputStreamReader，用于读取文件。
+          FileWriter继承自父类OutputStreamWriter，用于写文件。
+          BufferedWriter和BufferedReader是缓冲字符流
+
+InputStreamReader和OutputStreamWriter是实现从字符流到字节流的桥梁，使用指定的charset将写入的字符编码为字节。
+如：InputStreamReader isr = new InputStreamReader(new FileInputStream(file),"UTF-8");
+       BufferedReader br = new BufferedReader(isr);
+       OutputStreamWriter osw = new OutputStreamWriter(new FileOutputStream(file),"UTF-8");
+       BufferedWriter bw = new BufferedWriter(osw);
+
+打印流
+PrintStream和PrintWriter两个类
+打印功能上两者一样
+
+标准输入输出流
+System类中有两个静态成员变量
+public static  final InputStream in；标准输入流通常该流对应于键盘输入或由主机环境或用户指定的输入源
+public static final  printStream out 标准输出流通常该流对应与显示器输出或有主机环境或用户指定的另一个输出目标

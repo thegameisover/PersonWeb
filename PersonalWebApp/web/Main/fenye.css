@@ -1,0 +1,64 @@
+.fenyeBg {
+    background-color: rgba(225, 225, 225, 0.4);
+    width: 50%;
+    margin: 0 auto;
+}
+
+#UL li {
+    margin-left: 5%;
+    display: inline;
+    cursor: pointer;
+}
+
+.Span {
+    margin-left: 5%;
+    cursor: pointer;
+}
+
+.MouseOver0 {
+    color: cyan;
+}
+
+.MouseOver1 {
+    color: cyan;
+}
+
+.MouseOver2 {
+    color: cyan;
+}
+
+.MouseOver3 {
+    color: cyan;
+}
+
+.MouseOver4 {
+    color: cyan;
+}
+
+.MouseOver5 {
+    color: cyan;
+}
+
+.MouseOver6 {
+    color: cyan;
+}
+
+.MouseOver7 {
+    color: cyan;
+}
+
+.MouseOver8 {
+    color: cyan;
+}
+
+.MouseOver9 {
+    color: cyan;
+}
+
+.MouseOver10 {
+    color: cyan;
+}
+
+.MouseOver11 {
+    color: cyan;
+}

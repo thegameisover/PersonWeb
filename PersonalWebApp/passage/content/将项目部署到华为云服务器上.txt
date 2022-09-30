@@ -1,0 +1,37 @@
+第一步javaJDK的安装（推荐java8，避免与tomcat之间不兼容问题）
+1.可在线下载
+wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie"
+ http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-x64
+.rpm
+添加执行权限：
+首先来解释rwx3个字母所代表的意义：r 代表可读、可访问；w 代表可写、可修改；x 代表可执行
+　　①第一部分rw-属于文件的所属者，代表所属者可以访问并修改，但不能执行
+　　②第二部分r–属于文件的所属组，代表这个用户组可以访问，但不能修改和执行
+　　③第三部分r–属于其他用户，代表其他用户仅可以访问此文件或目录，但不能进行修改和执行操作
+　　④没有权限的用-来表示
+　　我们需要给自己增加可执行的权限
+命令：chmod +x jdk-8u131-linux-x64.rpm
+执行rpm进行安装
+命令：rpm -ivh jdk-8u131-linux-x64.rpm
+2.也可以通过官网下载在传到服务器
+查看此时JDK是否安装成功
+命令：java -version
+查看JDK的安装路径，（一般默认的路径：/usr/java/jdk1.8.0_131）
+配置JDK环境变量
+vim /etc/profile
+在英文状态下按a进入编辑模式
+将下代码添加到
+export JAVA_HOME=/usr/java/jdk1.8.0_131
+export JRE_HOME=${JAVA_HOME}/jre
+export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib:$CLASSPATH
+export JAVA_PATH=${JAVA_HOME}/bin:${JRE_HOME}/bin
+export PATH=$PATH:${JAVA_PATH}
+按住esc键 写“：wq”，保存退出
+让profile立即生效：source /etc/profile
+第二步Tomcat的配置
+新建文件夹tomcat
+在tomcat官网下载安装包
+通过tar -zxvf + 压缩包名
+在bin 目录下通过 ./startup.sh开起tomcat
+通过./shutdown.sh关闭tomcat
+ps -ef|grep tomcat可以查看tomcat是否成功运行。

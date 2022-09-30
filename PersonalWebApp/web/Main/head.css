@@ -1,0 +1,31 @@
+.head {
+    float: left;
+    width: 25%;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    margin-left: 5%;
+    cursor: pointer;
+}
+
+#headOne {
+    background-color: #87CEEB;
+}
+
+#headOne ul {
+    padding-left: 0%;
+    list-style: none;
+}
+
+#headCenter {
+    font-size: 20px;
+    font-family: '微软雅黑';
+    text-align: center;
+}
+
+#headOne img {
+    margin-left: 6%;
+}
+
+#headLast img {
+    margin-left: 5%;
+}

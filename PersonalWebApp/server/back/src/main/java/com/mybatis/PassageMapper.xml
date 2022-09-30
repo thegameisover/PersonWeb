@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mybatis.PassageMapper">
+    <!--对文章的数据库操作-->
+    <select id="searchPassage" resultType="map">
+        select title,introduction,picture,content,writer,writeDate,readNum,commentNum from passage where id &lt;=10;
+    </select>
+
+    <select id="nextPage" resultType="map">
+        select title ,picture,writer,writeDate,readNum,commentNum from passage where id &lt;= #{arg0} and id > #{arg1};
+    </select>
+
+    <insert id="SetPassage" >
+        insert  into passage(title,introduction,picture,content,writer,writeDate,readNum,commentNum) values(#{arg0},#{arg1},#{arg2},#{arg3},#{arg4},#{arg5},#{arg6},#{arg7});
+    </insert>
+
+    <select id="GetPassage" resultType="map">
+        select  title,introduction,content from passage where title = #{arg0};
+    </select>
+
+<select id="PassageName" resultType="map">
+    select title,introduction,picture,content,writer,writeDate,readNum,commentNum from passage where title like #{arg0};
+</select>
+
+    <update id="AlertNum">
+        update passage set readNum = #{arg1} where title = #{arg0};
+    </update>
+
+    <select id="GetNUm" resultType="int">
+        select readNum from passage where title = #{arg0};
+    </select>
+</mapper>
+

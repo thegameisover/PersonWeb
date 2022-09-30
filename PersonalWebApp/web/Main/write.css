@@ -1,0 +1,111 @@
+#writeBG {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+#writer {
+    overflow: auto;
+    border: 0px solid black;
+    margin: 0 auto;
+    width: 1000px;
+    height: 100%;
+    background-color: white;
+}
+
+
+/*照片边框*/
+
+#Border {
+    width: 20%;
+    border: 1px solid black;
+}
+
+
+/**/
+
+#icon {
+    margin-left: 18%;
+    margin-top: 15%;
+    font-size: 500%;
+    color: rgba(0, 0, 0, 0.3);
+}
+
+
+/*美化上传按钮*/
+
+.file {
+    position: relative;
+    display: inline-block;
+    background: #D0EEFF;
+    border: 1px solid #99D3F5;
+    border-radius: 4px;
+    /*padding: 4px 12px;*/
+    overflow: hidden;
+    color: #1E88C7;
+    text-decoration: none;
+    text-indent: 0;
+    line-height: 20px;
+    margin-left: 10px;
+}
+
+.file input {
+    position: absolute;
+    font-size: 100px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+    width: 100px;
+    height: 100px;
+}
+
+.file:hover {
+    background: #AADFFD;
+    border-color: #78C3F3;
+    color: #004974;
+    text-decoration: none;
+}
+
+
+/*文章标题*/
+
+#titlePassage {
+    outline: none;
+    border: none;
+    width: 500px;
+    border-bottom: 1px solid black;
+}
+
+
+/*导读*/
+
+#area {
+    width: 500px;
+    height: 100px;
+}
+
+
+/*文章内容*/
+
+#passageContent {
+    margin-left: 4%;
+    width: 90%;
+    height: 200px;
+}
+
+
+/*上传按钮*/
+
+#upLoad {
+    margin-left: 30%;
+}
+
+
+/*删除按钮*/
+
+#Cancel {
+    margin-left: 15%;
+}

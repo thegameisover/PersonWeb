@@ -1,0 +1,37 @@
+@Autowired 是一个注释，它可以对类成员变量、方法及构造函数进行标注，让 spring 完成 bean 自动装配的工作。
+@ConfigurationProperties(prefix = "jdbc") //这⾥需要定义出在
+
+application⽂件中定义属性值得前缀信息
+
+public class JdbcProperties {
+
+     private String url;
+
+    private String driverClassName;
+
+    private String username;
+
+   private String password;
+ // 注：要⽣成属性的set⽅法
+}
+
+
+ @RunWith(SpringRunner.class)
+ @SpringBootTest
+ class Springbootlesson1ApplicationTests {
+
+     @Autowired
+     private JdbcProperties jdbcProperties;
+
+    @Test
+    public void jdbcPropertiesTest(){
+
+          System.out.println(jdbcProperties);
+
+      }
+}
+
+打印结果：
+JdbcProperties{url='jdbc:mysql://127.0.0.1:3306/springboot',
+driverClassName='com.mysql.jdbc.Driver', username='root',
+password='root'}

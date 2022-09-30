@@ -1,0 +1,5 @@
+                                              集合
+           Collection（单列）               Map(双列）
+List（可重复）      Set（不可重复）                       以上全为接口不能直接创建对象
+ArrayList  LinkedList ...     HashSet  TreeSet...          HashMap...
+

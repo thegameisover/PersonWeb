@@ -1,0 +1,15 @@
+.span {
+    font-size: 10px;
+    margin-left: 10%;
+}
+
+#passageBG {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+#passage {
+    font-size: 25px;
+    word-wrap: break-word;
+    cursor: pointer;
+    /*防止文字超出盒子边界*/
+}

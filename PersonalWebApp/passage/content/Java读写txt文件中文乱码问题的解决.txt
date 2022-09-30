@@ -1,0 +1,13 @@
+在读写文件的时候显式指定编码格式。
+
+获取读文件的字符流：
+
+InputStreamReader isr = new InputStreamReader(new FileInputStream(file),"UTF-8");
+
+BufferedReader br = new BufferedReader(isr);
+
+获取写文件的字符流：
+
+OutputStreamWriter osw = new OutputStreamWriter(new FileOutputStream(file),"UTF-8");
+
+BufferedWriter bw = new BufferedWriter(osw);

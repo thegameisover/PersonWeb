@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="logup.css">
+    <link rel="stylesheet" href="../Vue/index.css">
+    <style>
+        body {
+            background-image: url(2.jpg);
+            background-size: 100% auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="Main">
+        <div id="logup">
+            <table id="table">
+                <tr>
+                    <td class="tdFirst">
+                        <label for="account">请输入手机号:</label>
+                    </td>
+                    <td>
+                        <input type="text" id="account" v-model="user.account" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tdFirst">
+                        <label for="name">请输入用户名:</label>
+                    </td>
+                    <td>
+                        <input type="text" id="name" v-model="user.userName" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tdFirst">
+                        <label for="password">请输入密码:</label>
+                    </td>
+                    <td>
+                        <input type="text" id="password" v-model="user.password" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" id="checking" value="请输入验证码" v-model="user.verificationCode" />
+                    </td>
+                    <td>
+                        <div id="check">{{checking}}</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="button">
+                        <el-button type="primary" round @click="click">点我注册</el-button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+</body>
+<script src="../Vue/vue.js"></script>
+<script src="../Vue/elements.js"></script>
+<script src="axios.js"></script>
+<script>
+    new Vue({
+        el: "#Main",
+        data: {
+            checking: '123',
+            user: {
+                account: '',
+                password: '',
+                userName: '',
+                verificationCode: '',
+            }
+        },
+        methods: {
+            click() {
+                var json = {
+                    "account": this.$data.user.account,
+                    "password": this.$data.user.password,
+                    "userName": this.$data.user.userName,
+                    "verificationCode": this.$data.user.verificationCode
+                }
+
+                axios({
+                    method: "post",
+                    url: "http://localhost:8080/logup",
+                    data: JSON.stringify(json)
+                }).then(function(resp) {
+                    if (resp.data == "1") {
+                        alert("注册成功");
+                        location.href = "../Login/login.html";
+                    } else {
+                        alert("注册失败");
+                    }
+                })
+            }
+        },
+
+    })
+</script>
+
+</html>

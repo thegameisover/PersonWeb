@@ -1,0 +1,85 @@
+/*菜单栏的总体设计*/
+
+.menu {
+    float: left;
+    text-align: center;
+    cursor: pointer;
+}
+
+
+/*搜索框的css样式*/
+
+#Search {
+    border: 1px solid black;
+    border-radius: 10px;
+    height: 28px;
+    width: 250px;
+}
+
+
+/*搜索按钮*/
+
+#search {
+    position: relative;
+    left: -25px;
+    cursor: pointer;
+}
+
+
+/*标题*/
+
+#title {
+    float: left;
+    width: 20%;
+    text-align: center;
+    cursor: default;
+}
+
+
+/*用户*/
+
+#user {
+    float: left;
+    margin-left: 5%;
+    font-size: 10px;
+    cursor: pointer;
+}
+
+
+/* 登录标签*/
+
+#setting {
+    float: left;
+    list-style: none;
+    position: relative;
+    font-size: 10px;
+    left: 90%;
+    top: -30px;
+}
+
+#setting li {
+    list-style: none;
+    text-align: center;
+    border: 1px solid black;
+    height: 50px;
+    cursor: pointer;
+}
+
+
+/*菜单栏的鼠标控制*/
+
+.mouseOver1 {
+    background-color: gray;
+}
+
+.mouseOver2 {
+    background-color: gray;
+}
+
+.mouseOver3 {
+    background-color: gray;
+}
+
+.mouseOver4 {
+    background-color: gray;
+}

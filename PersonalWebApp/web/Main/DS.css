@@ -1,0 +1,36 @@
+/*数据结构内容*/
+
+#DScontent {
+    border: 1px solid gray;
+    width: 100%;
+    border-radius: 10px;
+    background-color: white;
+}
+
+
+/*数据库导航栏*/
+
+#DSdaohang {
+    top: 11%;
+    width: 15%;
+    height: 100%;
+    position: fixed;
+    overflow: auto;
+}
+
+
+/**/
+
+#show1 {
+    margin-top: 5%;
+    margin-left: 16%;
+}
+
+#el {
+    height: 500px;
+}
+
+#Content {
+    height: 500px;
+    background-color: aliceblue;
+}

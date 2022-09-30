@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="../Vue/index.css">
+    <style>
+        body {
+            background-image: url(1.jpg);
+            background-size: 100% auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="Main">
+        <div id="login">
+            <table id="table">
+                <tr>
+                    <td>
+                        <label for="account">账号:</label>
+                    </td>
+                    <td>
+                        <input type="text" id="account" v-model="user.account" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="password">密码:</label>
+                    </td>
+                    <td>
+                        <input type="text" id="password" v-model="user.password" />
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <el-row>
+                            <el-button type="primary" round @click="click">点我登录</el-button>
+                        </el-row>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><a href="../logup/logup.html">没有账号？点我注册</a></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+</body>
+<script src="../Vue/vue.js"></script>
+<script src="../Vue/elements.js"></script>
+<script src="axios.js"></script>
+<script>
+    new Vue({
+        el: "#Main",
+        data: {
+            user: {
+                account: '',
+                password: ''
+            }
+        },
+        methods: {
+            click() {
+
+                var json = {
+                    "account": this.$data.user.account,
+                    "password": this.$data.user.password,
+                }
+                var p = JSON.stringify(json);
+                var xhr = new XMLHttpRequest();
+                xhr.open("post", "http://127.0.0.1:8080/login");
+                xhr.setRequestHeader("Content-Type", "application/json");
+                xhr.withCredentials = true;
+                xhr.send(p);
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState === 4) {
+                        if (xhr.status >= 200 & xhr.status < 300) {
+                            if (xhr.responseText == "true") {
+                                alert("登录成功");
+                                location.href = "../Main/main.html";
+                            } else {
+                                alert("密码或账号错误");
+                            }
+                        }
+                    }
+                }
+
+
+            }
+        },
+    })
+</script>
+
+</html>

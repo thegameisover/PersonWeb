@@ -1,0 +1,5 @@
+子组件获取父组件的data数据可以通过this.$root.获取
+父组件获取子组件方法：
+可在子组件上加上ref关键字
+如：<Passage ref="PG" class="wenzhang"></Passage>
+这样子类就可以通过this.refs.PG.获取

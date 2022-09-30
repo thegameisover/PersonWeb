@@ -1,0 +1,20 @@
+#login {
+    margin: 0 auto;
+    width: 500px;
+    height: 400px;
+    margin-top: 5%;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+#table {
+    margin: 0 auto;
+    margin-top: 100px;
+}
+
+td {
+    padding: 10px;
+}
+
+input {
+    border-radius: 5px;
+}

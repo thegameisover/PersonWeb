@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0 auto;
+            min-width: 1200px;
+        }
+    </style>
+    <link rel="stylesheet" href="../Vue/index.css">
+    <link rel="stylesheet" href="container.css">
+    <link rel="stylesheet" href="userPicture.css">
+    <link rel="stylesheet" href="main.css">
+
+    <body>
+        <div id="Main1">
+            <el-container>
+                <!--导航栏-->
+                <el-aside class="left">
+                    <Userpicture></Userpicture>
+                    <div id="userName">
+                        <h3>{{userName}}</h3>
+                    </div>
+                    <div class="List">
+                        {{Change}}
+                    </div>
+                    <div class="List">
+                        {{History}}
+                    </div>
+                    <div class="List">
+                        {{Setting}}
+                    </div>
+                </el-aside>
+                <!--内容展示区-->
+                <el-main>
+                    <el-empty description="功能还未实现"></el-empty>
+                </el-main>
+            </el-container>
+        </div>
+    </body>
+    <script src="../Vue/vue.js"></script>
+    <script src="../Vue/elements.js"></script>
+    <script src="userPicture.js"></script>
+
+    <script type="text/javascript">
+        new Vue({
+            el: '#Main1',
+            data: {
+                userName: '李白',
+                Change: '修改个人信息',
+                History: '历史记录',
+                Setting: '设置',
+                width: window.screen.width,
+                height: window.screen.height,
+            },
+            components: {
+                Userpicture: picture,
+            },
+            mounted() {
+                //设置最小宽度
+                var p = document.getElementsByTagName('body');
+                //设置容器的高度
+                var q = document.getElementsByClassName("left");
+                //设置菜单盒子的大小
+                var List = document.getElementsByClassName("List");
+                p[0].style.minWidth = this.$data.width + "px";
+                q[0].style.height = this.$data.height + 'px';
+                List[0].style.height = this.$data.height * 0.1 + 'px';
+                List[0].style.lineHeight = this.$data.height * 0.1 + 'px';
+                List[1].style.height = this.$data.height * 0.1 + 'px';
+                List[1].style.lineHeight = this.$data.height * 0.1 + 'px';
+                List[2].style.height = this.$data.height * 0.1 + 'px';
+                List[2].style.lineHeight = this.$data.height * 0.1 + 'px';
+            },
+        })
+    </script>
+
+</html>

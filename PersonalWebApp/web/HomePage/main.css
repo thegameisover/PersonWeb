@@ -1,0 +1,15 @@
+#userName {
+    text-align: center;
+}
+
+.List {
+    text-align: center;
+    border: 1px solid black;
+    cursor: pointer;
+    font-family: '微软雅黑';
+    font-size: 15px;
+}
+
+.List:hover {
+    color: gray;
+}

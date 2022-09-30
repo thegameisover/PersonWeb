@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mybatis.UserMapper">
+       <!--对用户的数据库操作-->
+<select id="login" resultType="String">
+       select id from user where account = #{arg0} and password = #{arg1};
+</select>
+       <insert id="logup" >
+              insert into user(UserName,account,password) values(#{arg0},#{arg1},#{arg2});
+       </insert>
+       <select id="exist" resultType="String">
+              select id from user where account = #{account};
+       </select>
+       <select id="UserName" resultType="String">
+              select UserName from user where account = #{arg0} and password = #{arg1};
+       </select>
+       <select id="Getname" resultType="String">
+              select UserName from user where UserName= #{arg0};
+       </select>
+</mapper>
+

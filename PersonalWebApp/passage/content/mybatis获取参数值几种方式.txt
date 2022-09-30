@@ -1,0 +1,23 @@
+1. mapper 接口方法的参数为单个的字面量类型
+   User user(String username);
+
+    select * from user where username = #{username};
+
+2.mapper接口方法的参数为多个时
+   User user（String username,String password);
+
+  select * from user where username = #{arg0} and password = #{arg1};
+
+3 mapper接口方法的参数为map时
+   User user(Map<String,Object> map);
+   map.put("username","admin");
+   map.put("password","123456");
+   User user = mapper.user(map);
+
+   select * from user where username = #{username} and password = #{password};
+
+4.mapper接口方法的参数是实体类型的的参数时
+  
+   int insert（User user）
+   
+   insert into user values （#{username}，#{password});

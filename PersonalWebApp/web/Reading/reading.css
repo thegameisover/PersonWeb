@@ -1,0 +1,41 @@
+/*页面*/
+
+#paperWize {
+    margin: 0 auto;
+    background-color: white;
+}
+
+
+/*标题*/
+
+#title {
+    text-align: center;
+}
+
+
+/*内容*/
+
+#content {
+    font-size: 20px;
+    font-family: '微软雅黑';
+    word-wrap: break-word;
+}
+
+
+/*评论*/
+
+#IN {
+    width: 60%;
+    float: left;
+}
+
+
+/*上传*/
+
+#UP {
+    float: left;
+}
+
+#text {
+    white-space: pre-wrap;
+}

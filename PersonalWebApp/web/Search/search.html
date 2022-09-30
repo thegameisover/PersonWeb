@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 100%;
+            width: 100%;
+            margin-top: 0px;
+            background-image: url("../Main/1.jpg");
+            background-size: 100% 100%;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+        }
+    </style>
+    <link rel="stylesheet" href="../Vue/index.css">
+    <link rel="stylesheet" href="passage.css">
+    <link rel="stylesheet" href="../Main/contentFloor.css">
+    <link rel="stylesheet" href="../Main/fenye.css">
+</head>
+
+<body>
+    <div id="search">
+        <div id="contentFloor" v-for="(p,index) in show" :key="index">
+            <Passage ref="PG" class="wenzhang"></Passage>
+        </div>
+    </div>
+</body>
+<script src="../Vue/vue.js"></script>
+<script src="../Vue/elements.js"></script>
+<script src="passage.js"></script>
+<script type="text/javascript">
+    new Vue({
+        el: '#search',
+        data: {
+            show: [{
+                id: 1,
+                content: '1',
+                writer: '',
+                date: '',
+                num: '',
+                comment: '',
+                url: '',
+            }, {
+                id: 2,
+                content: '',
+                writer: '',
+                date: '',
+                num: '',
+                comment: '',
+                url: '',
+            }, {
+                id: 3,
+                content: '',
+                writer: '',
+                date: '',
+                num: '',
+                comment: '',
+                url: '',
+            }, {
+                id: 4,
+                content: '',
+                writer: '',
+                date: '',
+                num: '',
+                comment: '',
+                url: '',
+            }, {
+                id: 5,
+                content: '',
+                writer: '',
+                date: '',
+                num: '',
+                comment: '',
+                url: '',
+            }, {
+                id: 6,
+                content: '',
+                writer: '',
+                date: '',
+                num: '',
+                comment: '',
+                url: '',
+            }, {
+                id: 7,
+                content: '',
+                writer: '',
+                date: '',
+                num: '',
+                comment: '',
+                url: '',
+            }, {
+                id: 8,
+                content: '',
+                writer: '',
+                date: '',
+                num: '',
+                comment: '',
+                url: '',
+            }, {
+                id: 9,
+                content: '',
+                writer: '',
+                date: '',
+                num: '',
+                comment: '',
+                url: '',
+            }, {
+                id: 10,
+                content: '',
+                writer: '',
+                date: '',
+                num: '',
+                comment: '',
+                url: '',
+            }, {
+                id: 11,
+                content: '',
+                writer: '',
+                date: '',
+                num: '',
+                comment: '',
+                url: '',
+            }, {
+                id: 12,
+                content: '',
+                writer: '',
+                date: '',
+                num: '',
+                comment: '',
+                url: '',
+            }, {
+                id: 13,
+                content: '',
+                writer: '',
+                date: '',
+                num: '',
+                comment: '',
+                url: '',
+            }, {
+                id: 14,
+                content: '',
+                writer: '',
+                date: '',
+                num: '',
+                comment: '',
+                url: '',
+            }, {
+                id: 15,
+                content: '',
+                writer: '',
+                date: '',
+                num: '',
+                comment: '',
+                url: '',
+            }, {
+                id: 16,
+                content: '',
+                writer: '',
+                date: '',
+                num: '',
+                comment: '',
+                url: '',
+            }, {
+                id: 17,
+                content: '',
+                writer: '',
+                date: '',
+                num: '',
+                comment: '',
+                url: '',
+            }, {
+                id: 18,
+                content: '',
+                writer: '',
+                date: '',
+                num: '',
+                comment: '',
+                url: '',
+            }, {
+                id: 19,
+                content: '',
+                writer: '',
+                date: '',
+                num: '',
+                comment: '',
+                url: '',
+            }, {
+                id: 20,
+                content: '',
+                writer: '',
+                date: '',
+                num: '',
+                comment: '',
+                url: '',
+            }, ],
+            passageNum: 0,
+        },
+        components: {
+            Passage: Passage,
+        },
+        mounted() {
+            var p = location.search;
+            p = p.slice(p.indexOf('?') + 1);
+            var q = document.getElementsByClassName("wenzhang")
+            var _this = this;
+            var xhr = new XMLHttpRequest();
+            xhr.open("get", "http://127.0.0.1:8080/Search?value=" + p);
+            xhr.setRequestHeader("Content-Type", "application/json");
+            xhr.withCredentials = true;
+            xhr.send();
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4) {
+                    if (xhr.status >= 200 & xhr.status < 300) {
+                        var json = JSON.parse(xhr.responseText);
+
+
+                        for (var j = json.num; j < 20; j++) {
+                            q[j].style.display = "none";
+                        }
+                        var i = 0;
+                        while (i != json.num) {
+                            if (i == 0) {
+                                _this.$data.show[0].content = json.passage0[0];
+                                _this.$data.show[0].url = json.passage0[1];
+                                _this.$data.show[0].writer = json.passage0[2];
+                                _this.$data.show[0].date = json.passage0[3];
+                                _this.$data.show[0].num = json.passage0[4];
+                                _this.$data.show[0].comment = json.passage0[5];
+                                _this.$refs.PG[0].fuzhi();
+                                i++;
+                            } else if (i == 1) {
+                                _this.$data.show[1].content = json.passage1[0];
+                                _this.$data.show[1].url = json.passage1[1];
+                                _this.$data.show[1].writer = json.passage1[2];
+                                _this.$data.show[1].date = json.passage1[3];
+                                _this.$data.show[1].num = json.passage1[4];
+                                _this.$data.show[1].comment = json.passage1[5];
+                                _this.$refs.PG[1].fuzhi();
+                                i++;
+                            } else if (i == 2) {
+                                _this.$data.show[2].content = json.passage2[0];
+                                _this.$data.show[2].url = json.passage2[1];
+                                _this.$data.show[2].writer = json.passage2[2];
+                                _this.$data.show[2].date = json.passage2[3];
+                                _this.$data.show[2].num = json.passage2[4];
+                                _this.$data.show[2].comment = json.passage2[5];
+                                _this.$refs.PG[2].fuzhi();
+                                i++;
+                            } else if (i == 3) {
+                                _this.$data.show[3].content = json.passage3[0];
+                                _this.$data.show[3].url = json.passage3[1];
+                                _this.$data.show[3].writer = json.passage3[2];
+                                _this.$data.show[3].date = json.passage3[3];
+                                _this.$data.show[3].num = json.passage3[4];
+                                _this.$data.show[3].comment = json.passage3[5];
+                                _this.$refs.PG[2].fuzhi();
+                                i++;
+                            } else if (i == 4) {
+                                _this.$data.show[4].content = json.passage4[0];
+                                _this.$data.show[4].url = json.passage4[1];
+                                _this.$data.show[4].writer = json.passage4[2];
+                                _this.$data.show[4].date = json.passage4[3];
+                                _this.$data.show[4].num = json.passage4[4];
+                                _this.$data.show[4].comment = json.passage4[5];
+                                _this.$refs.PG[4].fuzhi();
+                                i++;
+                            } else if (i == 5) {
+                                _this.$data.show[5].content = json.passage5[0];
+                                _this.$data.show[5].url = json.passage5[1];
+                                _this.$data.show[5].writer = json.passage5[2];
+                                _this.$data.show[5].date = json.passage5[3];
+                                _this.$data.show[5].num = json.passage5[4];
+                                _this.$data.show[5].comment = json.passage5[5];
+                                _this.$refs.PG[5].fuzhi();
+                                i++;
+                            } else if (i == 6) {
+                                _this.$data.show[6].content = json.passage6[0];
+                                _this.$data.show[6].url = json.passage6[1];
+                                _this.$data.show[6].writer = json.passage6[2];
+                                _this.$data.show[6].date = json.passage6[3];
+                                _this.$data.show[6].num = json.passage6[4];
+                                _this.$data.show[6].comment = json.passage6[5];
+                                _this.$refs.PG[6].fuzhi();
+                                i++;
+                            } else if (i == 7) {
+                                _this.$data.show[7].content = json.passage7[0];
+                                _this.$data.show[7].url = json.passage7[1];
+                                _this.$data.show[7].writer = json.passage7[2];
+                                _this.$data.show[7].date = json.passage7[3];
+                                _this.$data.show[7].num = json.passage7[4];
+                                _this.$data.show[7].comment = json.passage7[5];
+                                _this.$refs.PG[7].fuzhi();
+                                i++;
+                            } else if (i == 8) {
+                                _this.$data.show[8].content = json.passage8[0];
+                                _this.$data.show[8].url = json.passage8[1];
+                                _this.$data.show[8].writer = json.passage8[2];
+                                _this.$data.show[8].date = json.passage8[3];
+                                _this.$data.show[8].num = json.passage8[4];
+                                _this.$data.show[8].comment = json.passage8[5];
+                                _this.$refs.PG[8].fuzhi();
+                                i++;
+                            } else if (i == 9) {
+                                _this.$data.show[9].content = json.passage9[0];
+                                _this.$data.show[9].url = json.passage9[1];
+                                _this.$data.show[9].writer = json.passage9[2];
+                                _this.$data.show[9].date = json.passage9[3];
+                                _this.$data.show[9].num = json.passage9[4];
+                                _this.$data.show[9].comment = json.passage9[5];
+                                _this.$refs.PG[9].fuzhi();
+                                i++;
+                            } else if (i == 10) {
+                                _this.$data.show[10].content = json.passage10[0];
+                                _this.$data.show[10].url = json.passage10[1];
+                                _this.$data.show[10].writer = json.passage10[2];
+                                _this.$data.show[10].date = json.passage10[3];
+                                _this.$data.show[10].num = json.passage10[4];
+                                _this.$data.show[10].comment = json.passage10[5];
+                                _this.$refs.PG[10].fuzhi();
+                                i++;
+                            } else if (i == 11) {
+                                _this.$data.show[11].content = json.passage11[0];
+                                _this.$data.show[11].url = json.passage11[1];
+                                _this.$data.show[11].writer = json.passage11[2];
+                                _this.$data.show[11].date = json.passage11[3];
+                                _this.$data.show[11].num = json.passage11[4];
+                                _this.$data.show[11].comment = json.passage11[5];
+                                _this.$refs.PG[11].fuzhi();
+                                i++;
+                            } else if (i == 12) {
+                                _this.$data.show[12].content = json.passage12[0];
+                                _this.$data.show[12].url = json.passage12[1];
+                                _this.$data.show[12].writer = json.passage12[2];
+                                _this.$data.show[12].date = json.passage12[3];
+                                _this.$data.show[12].num = json.passage12[4];
+                                _this.$data.show[12].comment = json.passage12[5];
+                                _this.$refs.PG[12].fuzhi();
+                                i++;
+                            } else if (i == 13) {
+                                _this.$data.show[13].content = json.passage13[0];
+                                _this.$data.show[13].url = json.passage13[1];
+                                _this.$data.show[13].writer = json.passage13[2];
+                                _this.$data.show[13].date = json.passage13[3];
+                                _this.$data.show[13].num = json.passage13[4];
+                                _this.$data.show[13].comment = json.passage13[5];
+                                _this.$refs.PG[13].fuzhi();
+                                i++;
+                            } else if (i == 14) {
+                                _this.$data.show[14].content = json.passage14[0];
+                                _this.$data.show[14].url = json.passage14[1];
+                                _this.$data.show[14].writer = json.passage14[2];
+                                _this.$data.show[14].date = json.passage14[3];
+                                _this.$data.show[14].num = json.passage14[4];
+                                _this.$data.show[14].comment = json.passage14[5];
+                                _this.$refs.PG[14].fuzhi();
+                                i++;
+                            } else if (i == 15) {
+                                _this.$data.show[15].content = json.passage15[0];
+                                _this.$data.show[15].url = json.passage15[1];
+                                _this.$data.show[15].writer = json.passage15[2];
+                                _this.$data.show[15].date = json.passage15[3];
+                                _this.$data.show[15].num = json.passage15[4];
+                                _this.$data.show[15].comment = json.passage15[5];
+                                _this.$refs.PG[15].fuzhi();
+                                i++;
+                            } else if (i == 16) {
+                                _this.$data.show[16].content = json.passage16[0];
+                                _this.$data.show[16].url = json.passage16[1];
+                                _this.$data.show[16].writer = json.passage16[2];
+                                _this.$data.show[16].date = json.passage16[3];
+                                _this.$data.show[16].num = json.passage16[4];
+                                _this.$data.show[16].comment = json.passage16[5];
+                                _this.$refs.PG[16].fuzhi();
+                                i++;
+                            } else if (i == 17) {
+                                _this.$data.show[17].content = json.passage17[0];
+                                _this.$data.show[17].url = json.passage17[1];
+                                _this.$data.show[17].writer = json.passage17[2];
+                                _this.$data.show[17].date = json.passage17[3];
+                                _this.$data.show[17].num = json.passage17[4];
+                                _this.$data.show[17].comment = json.passage17[5];
+                                _this.$refs.PG[17].fuzhi();
+                                i++;
+                            } else if (i == 18) {
+                                _this.$data.show[18].content = json.passage18[0];
+                                _this.$data.show[18].url = json.passage18[1];
+                                _this.$data.show[18].writer = json.passage18[2];
+                                _this.$data.show[18].date = json.passage18[3];
+                                _this.$data.show[18].num = json.passage18[4];
+                                _this.$data.show[18].comment = json.passage18[5];
+                                _this.$refs.PG[18].fuzhi();
+                                i++;
+                            } else if (i == 19) {
+                                _this.$data.show[19].content = json.passage19[0];
+                                _this.$data.show[19].url = json.passage19[1];
+                                _this.$data.show[19].writer = json.passage19[2];
+                                _this.$data.show[19].date = json.passage19[3];
+                                _this.$data.show[19].num = json.passage19[4];
+                                _this.$data.show[19].comment = json.passage19[5];
+                                _this.$refs.PG[19].fuzhi();
+                                i++;
+                            }
+                        }
+
+
+                    }
+                }
+            }
+
+        },
+    })
+</script>
+
+</html>

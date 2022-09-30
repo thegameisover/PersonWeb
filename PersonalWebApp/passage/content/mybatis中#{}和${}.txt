@@ -1,0 +1,9 @@
+${}本质上是字符串的拼接
+#{}本质上是占位符赋值
+
+${}需要在使用的时候加上单引号
+如：select * from user where username = ‘${username}';
+
+当参数为多个时，两者都已arg0,arg1,arg2.....  为建，以参数为值
+或
+已param1，param2...为键，以参数为值。

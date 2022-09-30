@@ -1,0 +1,13 @@
+#contentFloor {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 1%;
+}
+
+.wenzhang {
+    display: block;
+}
+
+.writerShow {
+    display: none;
+}

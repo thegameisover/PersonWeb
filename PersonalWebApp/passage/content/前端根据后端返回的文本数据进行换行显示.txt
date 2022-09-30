@@ -1,0 +1,4 @@
+给展示内容的容器div加上下面这句CSS代码：
+white-space:pre-line;
+或
+white-space:pre-wrap;
